@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_habit_tracker/bindings/app_binding.dart';
+import 'package:flutter_habit_tracker/controller/theme_controller.dart';
 import 'package:flutter_habit_tracker/core/constants/string_constant.dart';
 import 'package:flutter_habit_tracker/core/theme/theme.dart';
 import 'package:flutter_habit_tracker/routes/app_routes.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 
 void main() {
-  runApp(const MyApp());
+  final ThemeController themeController = Get.put(ThemeController());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  MyApp({super.key});
+  final ThemeController themeController = Get.find();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -19,9 +22,11 @@ class MyApp extends StatelessWidget {
       title: StringConstant.appTitle,
       theme: MyAppTheme.lightTheme,
       darkTheme: MyAppTheme.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: themeController.isDarkMode.value
+          ? ThemeMode.dark
+          : ThemeMode.light,
       initialRoute: AppRoutes.splash,
-      initialBinding: null,
+      initialBinding: AppBinding(),
       getPages: AppRoutes.page,
       defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 250),

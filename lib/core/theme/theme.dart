@@ -1,4 +1,6 @@
+import 'package:flutter_habit_tracker/core/constants/app_colors.dart';
 import 'package:flutter_habit_tracker/core/theme/custom_theme/appbar_theme.dart';
+import 'package:flutter_habit_tracker/core/theme/custom_theme/elevated_button_theme.dart';
 import 'package:flutter_habit_tracker/core/theme/custom_theme/icon_button_theme.dart';
 import 'package:flutter_habit_tracker/core/theme/custom_theme/text_theme.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +27,9 @@ class MyAppTheme {
     ),
     appBarTheme: MyAppbarTheme.lightAppbarTheme,
     iconButtonTheme: MyIconButtonTheme.lightIconButtonTheme,
+    elevatedButtonTheme: MyElevatedButtonTheme.lightElevatedButtonTheme,
+
+    dividerTheme: DividerThemeData(color: AppColors.primaryLight, thickness: 2),
   );
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
@@ -43,5 +48,7 @@ class MyAppTheme {
     ),
     appBarTheme: MyAppbarTheme.darkAppbarTheme,
     iconButtonTheme: MyIconButtonTheme.darkIconButtonTheme,
+    elevatedButtonTheme: MyElevatedButtonTheme.darkElevatedButtonTheme,
+    dividerTheme: DividerThemeData(color: AppColors.primaryLight, thickness: 2),
   );
 }
